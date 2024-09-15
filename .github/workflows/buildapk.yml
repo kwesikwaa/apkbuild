@@ -1,0 +1,29 @@
+name: Build Unity APK
+on:
+  workflow_dispatch: {}
+  push:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4   
+
+      - name: Buuild APK
+        uses: game-ci/unity-builder@v4
+        env:
+            UNITY-LICENSE: ${{ secrets.UNITY_LICENSE }}
+            UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+            UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          targetPlatform: Android
+
+      - name: Save APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: cynteract-build-apk-${{ github.actor }}
+          path: ./buildS 
+          retention-days: 1 
+          overwrite: true
+
