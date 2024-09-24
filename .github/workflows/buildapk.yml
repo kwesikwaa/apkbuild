@@ -1,7 +1,7 @@
 name: Build Unity APK
 on:
   workflow_dispatch: {}
-  push:
+  # push:
 
 jobs:
   build:
