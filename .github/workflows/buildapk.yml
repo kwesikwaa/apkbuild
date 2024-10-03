@@ -28,13 +28,13 @@ jobs:
         with:
           targetPlatform: Android
           buildName: somethingforNOW
-          buildsPath: /allmybuilds/
+          buildsPath: allmybuilds
 
       - name: Save APK
         uses: actions/upload-artifact@v4
         with:
           name: test
-          path: /allmybuilds/
+          path: /github/workspacee/allmybuilds/Android
           retention-days: 1 
           overwrite: true
 
