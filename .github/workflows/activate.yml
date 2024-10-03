@@ -6,10 +6,16 @@ jobs:
         name: Request manual activation file 🔑
         runs-on: ubuntu-latest
         steps:
-            # Request manual activation file
-            - name: Request manual activation file
-              id: getManualLicenseFile
-              uses: game-ci/unity-request-activation-file@v2
+            - uses: actions/checkout@v4   
+            
+            # Request activation file
+            - name: Unity - Check Active Licence
+              uses: game-ci/unity-activate@v2.0.0
+              env:
+                  UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+                  UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+                  UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+
             # Upload artifact (Unity_v20XX.X.XXXX.alf)
             - name: Expose as artifact
               uses: actions/upload-artifact@v4
