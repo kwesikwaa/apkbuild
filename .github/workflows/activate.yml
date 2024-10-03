@@ -3,7 +3,7 @@ on:
     workflow_dispatch: {}
 jobs:
     activation:
-        name: Request manual activation file 🔑
+        name: Request manual activation file
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4   
@@ -12,10 +12,10 @@ jobs:
             - name: Unity - Check Active Licence
               uses: game-ci/unity-activate@v2.0.0
               id: getManualLicenseFile
-              #env:
-              #    UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-              #    UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
-              #    UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+              env:
+                  UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+                  UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+                  UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
 
             # Upload artifact (Unity_v20XX.X.XXXX.alf)
             - name: Expose as artifact
