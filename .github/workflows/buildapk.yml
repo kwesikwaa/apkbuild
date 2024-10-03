@@ -27,12 +27,14 @@ jobs:
             UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: Android
+          buildName: somethingforNOW
+          buildsPath: /allmybuilds/
 
       - name: Save APK
         uses: actions/upload-artifact@v4
         with:
           name: test
-          path: /github/workspace/
+          path: /allmybuilds/
           retention-days: 1 
           overwrite: true
 
