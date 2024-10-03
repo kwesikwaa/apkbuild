@@ -11,14 +11,15 @@ jobs:
             # Request activation file
             - name: Unity - Check Active Licence
               uses: game-ci/unity-activate@v2.0.0
-              env:
-                  UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-                  UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
-                  UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+              id: getManualLicenseFile
+              #env:
+              #    UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+              #    UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+              #    UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
 
             # Upload artifact (Unity_v20XX.X.XXXX.alf)
             - name: Expose as artifact
               uses: actions/upload-artifact@v4
               with:
-                  name: somenae-${{github.actor}}
-                  path: /builds
+                  name: ${{ steps.getManualLicenseFile.output.filePath }}
+                  path: ${{ steps.getManualLicenseFile.output.filePath }}
