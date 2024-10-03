@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4   
@@ -13,7 +13,7 @@ jobs:
       - name: Buuild APK
         uses: game-ci/unity-builder@v4
         env:
-            UNITY-LICENSE: ${{ secrets.UNITY_LICENSE }}
+            UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
             UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
             UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
