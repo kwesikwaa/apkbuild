@@ -34,7 +34,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: test
-          path: /github/workspacee/allmybuilds/Android
+          path: /github/workspace/allmybuilds/Android/
           retention-days: 1 
           overwrite: true
 
