@@ -21,5 +21,5 @@ jobs:
             - name: Expose as artifact
               uses: actions/upload-artifact@v4
               with:
-                  name: ${{ steps.getManualLicenseFile.output.filePath }}
-                  path: ${{ steps.getManualLicenseFile.output.filePath }}
+                  name: acntva
+                  path: /github/workspace/_activate-license
