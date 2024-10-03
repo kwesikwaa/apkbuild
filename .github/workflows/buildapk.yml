@@ -17,10 +17,6 @@ jobs:
       #     restore-keys: |
       #       Library-personalTest-
       #       Library-
-      - name: Clear caches
-        uses: easimon/wipe-cache@main
-        with:
-          dry-run: 'true'
           
       - name: Buuild APK
         uses: game-ci/unity-builder@v4
