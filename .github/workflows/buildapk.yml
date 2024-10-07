@@ -33,7 +33,7 @@ jobs:
       - name: Save APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Build ${{ steps.myBuildStep.outputs.buildVersion }}
+          name: Build ${{ steps.thebuildstep.outputs.buildName }}
           path: build
           
           # name: test
