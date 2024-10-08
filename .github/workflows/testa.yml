@@ -4,7 +4,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      # BRANCH_NAME: ${{ github.ref.replace('refs/heads/','') }}
+      BRANCH_NAME: ${{ github.ref.replace('refs/heads/', '') }}
       BASED: ${{ github.ref.basename }}
     steps:
       - name: Printa
@@ -12,3 +12,4 @@ jobs:
           echo "Commit message: $GITHUB_EVENT_COMMIT_MESSAGE"
           echo "Branch name: $GITHUB_REF"
           echo "Branch name: $BASED"
+          echo "Branch name: $BRANCH_NAME"
