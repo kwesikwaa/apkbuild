@@ -13,3 +13,4 @@ jobs:
           BRANCH_NAME: $BRANCH_NAME
         run: |
           echo "Branch name: $BRANCH_NAME"
+          echo "Branch name: $GITHUB_ENV"
