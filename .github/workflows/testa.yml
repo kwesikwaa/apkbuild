@@ -3,13 +3,13 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      BRANCH_NAME: ${{ github.ref.replace('refs/heads/', '') }}
-      BASED: ${{ github.ref.basename }}
     steps:
-      - name: Printa
+      - name: Extract branch name
         run: |
-          echo "Commit message: $GITHUB_EVENT_COMMIT_MESSAGE"
-          echo "Branch name: $GITHUB_REF"
-          echo "Branch name: $BASED"
+          echo "BRANCH_NAME=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
+      
+      - name: Print branch name
+        env:
+          BRANCH_NAME: $BRANCH_NAME
+        run: |
           echo "Branch name: $BRANCH_NAME"
