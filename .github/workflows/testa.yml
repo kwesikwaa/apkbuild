@@ -1,0 +1,11 @@
+name: TestFlow
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Printa
+        run: |
+          echo "Commit message: $GITHUB_EVENT_COMMIT_MESSAGE"
+          echo "Branch name: $GITHUB_REF"
+          echo "Branch name: $GITHUB_BRANCH"
