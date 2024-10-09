@@ -15,8 +15,8 @@ jobs:
 
       - name: UseFlow
         run: |
-          echo "The modified branch name is: ${{ env.branch_name }}"
-          echo "$branchNAME"
+          echo "The modified branch name is: ${branch_name}"
+          echo "${branchNAME}"
           echo "modified: ${{ env.branchNAME }}"
 
 
