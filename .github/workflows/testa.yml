@@ -7,7 +7,6 @@ jobs:
       - name: Printa
         run: |
           branch_name=$GITHUB_REF
-          echo "::set-output name=branch_name::$branch_name"
           echo "{branchNAME}={value}" >> $GITHUB_OUTPUT
           echo "Commit message: $GITHUB_EVENT_COMMIT_MESSAGE"
           echo "Branch name: $GITHUB_REF"
