@@ -1,29 +1,27 @@
 name: TestFlow
-on: [push]
+on: 
+  workflow_dispatch: {}
+  # push:
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Printa
+        run: |
+          branch_name=$GITHUB_REF
+          echo "{branchNAME}={value}" >> $GITHUB_OUTPUT
+          echo "Commit message: $GITHUB_EVENT_COMMIT_MESSAGE"
+          echo "Branch name: $GITHUB_REF"
+          echo "Branch name: $GITHUB_BRANCH"
+          echo "$branchNAME"
+
       - name: UseFlow
         run: |
           b="$GITHUB_REF"
-          b=$(sed 's/^refs\/heads\///' <<< "$b")
+          b=$(sed 's/^refs\/heads\///' ; sed 's/\//-/g' <<< "$b")
           echo "BNAME=$b" >> $GITHUB_ENV
 
       - name: UseENV
         run: |
           echo "The variable is $BNAME"
-
-  
-  # - name: Set environment variable
-  #   run: echo "MY_ENV_VAR=myValue" >> $GITHUB_ENV
-  
-  # - name: Use environment variable
-  #   run: |
-  #     echo "The value of MY_ENV_VAR is $MY_ENV_VAR"
-
-  # - name: Store build timestamp
-  #   run: echo "BUILD_TIME=$(date +'%T')" >> $GITHUB_ENV
-
-  # - name: Deploy using stored timestamp
-  #   run: echo "Deploying at $BUILD_TIME"
+          
