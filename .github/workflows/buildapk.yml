@@ -30,10 +30,16 @@ jobs:
           buildName: somethingforNOW
           # buildsPath: allmybuilds
 
+      - name: Get Branch Name
+        run: |
+          b="$GITHUB_REF"
+          b=$(sed 's/^refs\/heads\///' <<< "$b")
+          echo "BRANCH_NAME=$b" >> $GITHUB_ENV
+          
       - name: Save APK artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Build ${{ steps.thebuildstep.outputs.buildName }}
+          name: ${{env.BRANCH_NAME}}
           path: build
           
           # name: test
