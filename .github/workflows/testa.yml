@@ -22,6 +22,9 @@ jobs:
           a="hello/there/you"
           a=$(sed 's/^hello\/there\///' <<< "$a")
           echo "$a"
+          b="$GITHUB_REF"
+          b=$(sed 's/^hello\/there\///' <<< "$b")
+          echo "$b"
 
 
 # - name: Save state
