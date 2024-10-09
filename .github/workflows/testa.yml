@@ -15,32 +15,27 @@ jobs:
 
       - name: UseFlow
         run: |
-          echo "The modified branch name is: ${branch_name}"
-          echo "${branchNAME}"
-          echo "modified: ${{ env.branchNAME }}"
-          echo "=============================>>>"
-          a="hello/there/you"
-          a=$(sed 's/^hello\/there\///' <<< "$a")
-          echo "$a"
           b="$GITHUB_REF"
           b=$(sed 's/^refs\/heads\///' <<< "$b")
-          echo "$b"
+          echo "BNAME=$b" >> $GITHUB_ENV
 
+          echo "TIME=$(date + '%T')" >> $GITHUB_ENV
 
-# - name: Save state
-# run: echo "{name}={value}" >> $GITHUB_STATE
+      - name: UseENV
+        run: |
+          echo "The variable is $BNAME"
+          echo "The time is $TIME
 
-# - name: Set output
-# run: echo "{name}={value}" >> $GITHUB_OUTPUT
+  
+  # - name: Set environment variable
+  #   run: echo "MY_ENV_VAR=myValue" >> $GITHUB_ENV
+  
+  # - name: Use environment variable
+  #   run: |
+  #     echo "The value of MY_ENV_VAR is $MY_ENV_VAR"
 
-# run: echo "::set-output name={name}::{value}"
+  # - name: Store build timestamp
+  #   run: echo "BUILD_TIME=$(date +'%T')" >> $GITHUB_ENV
 
-# steps:
-#   - name: Remove refs/heads/ from branch name
-#     run: |
-#       branch_name="refs/heads/main"
-#       branch_name=$(sed 's/^refs\/heads\///' <<< "$branch_name")
-#       echo "::set-output name=branch_name::$branch_name"
-#   - name: Use the modified branch name
-#     run: |
-#       echo "The modified branch name is: ${{ env.branch_name }}"
+  # - name: Deploy using stored timestamp
+  #   run: echo "Deploying at $BUILD_TIME"
