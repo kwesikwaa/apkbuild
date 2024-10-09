@@ -6,15 +6,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Printa
-        run: |
-          branch_name=$GITHUB_REF
-          echo "{branchNAME}={value}" >> $GITHUB_OUTPUT
-          echo "Commit message: $GITHUB_EVENT_COMMIT_MESSAGE"
-          echo "Branch name: $GITHUB_REF"
-          echo "Branch name: $GITHUB_BRANCH"
-          echo "$branchNAME"
-
       - name: UseFlow
         run: |
           b="$GITHUB_REF"
