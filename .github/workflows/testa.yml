@@ -23,7 +23,7 @@ jobs:
           a=$(sed 's/^hello\/there\///' <<< "$a")
           echo "$a"
           b="$GITHUB_REF"
-          b=$(sed 's/^hello\/there\///' <<< "$b")
+          b=$(sed 's/^refs\/heads\///' <<< "$b")
           echo "$b"
 
 
