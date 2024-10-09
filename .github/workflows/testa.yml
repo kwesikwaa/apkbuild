@@ -19,7 +19,7 @@ jobs:
           b=$(sed 's/^refs\/heads\///' <<< "$b")
           echo "BNAME=$b" >> $GITHUB_ENV
 
-          echo "TIME=$(date + '%T')" >> $GITHUB_ENV
+          echo "TIME=$(date + "%T")" >> $GITHUB_ENV
 
       - name: UseENV
         run: |
