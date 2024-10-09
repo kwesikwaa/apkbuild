@@ -35,7 +35,7 @@ jobs:
           b="$GITHUB_REF"
           b=$(sed 's/^refs\/heads\///' <<< "$b")
           b=$(sed 's/\//-/g' <<< "$b")
-          echo "BNAME=$b" >> $GITHUB_ENV
+          echo "BRANCH_NAME=$b" >> $GITHUB_ENV
           
       - name: Save APK artifact
         uses: actions/upload-artifact@v4
