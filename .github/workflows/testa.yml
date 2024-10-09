@@ -6,6 +6,24 @@ jobs:
     steps:
       - name: Printa
         run: |
+          branch_name=$GITHUB_REF
+          branch_name=$(sed 's/^refs\/heads\///' <<< "$branch_name")
+          echo "::set-output name=branch_name::$branch_name"
           echo "Commit message: $GITHUB_EVENT_COMMIT_MESSAGE"
           echo "Branch name: $GITHUB_REF"
           echo "Branch name: $GITHUB_BRANCH"
+
+      - name: UseFlow
+        run: |
+          echo "The modified branch name is: ${{ env.branch_name }}"
+
+
+# steps:
+#   - name: Remove refs/heads/ from branch name
+#     run: |
+#       branch_name="refs/heads/main"
+#       branch_name=$(sed 's/^refs\/heads\///' <<< "$branch_name")
+#       echo "::set-output name=branch_name::$branch_name"
+#   - name: Use the modified branch name
+#     run: |
+#       echo "The modified branch name is: ${{ env.branch_name }}"
