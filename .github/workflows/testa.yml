@@ -18,6 +18,10 @@ jobs:
           echo "The modified branch name is: ${branch_name}"
           echo "${branchNAME}"
           echo "modified: ${{ env.branchNAME }}"
+          echo "=============================>>>"
+          a="hello/there/you"
+          a=$(sed 's/^hello\/there\///' <<< "$a")
+          echo "$a"
 
 
 # - name: Save state
