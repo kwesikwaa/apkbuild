@@ -4,13 +4,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Extract branch name
+      - name: Printa
         run: |
-          echo "BRANCH_NAME=${GITHUB_REF#refs/heads/}" >> $GITHUB_ENV
-      
-      - name: Print branch name
-        env:
-          BRANCH_NAME: $BRANCH_NAME
-        run: |
-          echo "Branch name: $BRANCH_NAME"
-          echo "Branch name: $GITHUB_ENV"
+          echo "Commit message: $GITHUB_EVENT_COMMIT_MESSAGE"
+          echo "Branch name: $GITHUB_REF"
+          echo "Branch name: $GITHUB_BRANCH"
